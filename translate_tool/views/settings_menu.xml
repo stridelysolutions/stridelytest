@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+      <menuitem
+            id="custom_translation_menu"
+            parent="base.menu_translation_export"
+            action="translate_tool.wizard_translation_view_action"
+            name="Translate Tool"
+            sequence="1"
+            />
+</odoo>
