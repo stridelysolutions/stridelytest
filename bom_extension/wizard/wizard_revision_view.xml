@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="wizard_revision_view_form" model="ir.ui.view">
+       <field name="name">revision.view.form</field>
+       <field name="model">mrp.bom.revision.wizard</field>
+       <field name="arch" type="xml">
+           <form string="">
+               <sheet>
+                   <group>
+                       <field name="bil_of_material" />
+                       <field name="no" />
+                       <field name="revision_description" />
+                   </group>
+                   <footer>
+                       <button name="cancel" string="Cancel" special="cancel" class="oe_link"/>
+                       <button name = 'create_data' type= 'object' string = 'Ok' class="btn-primary"/>
+                   </footer>
+               </sheet>
+           </form>
+       </field>
+   </record>
+
+    <record id="wizard_revision_action" model="ir.actions.act_window">
+            <field name="name">Revision</field>
+            <field name="res_model">mrp.bom.revision.wizard</field>
+            <field name="view_mode">form,tree</field>
+            <field name="target">new</field>
+    </record>
+
+</odoo>
