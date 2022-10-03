@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Driving School Classes Model"""
 from odoo import models, fields, api
-import datetimel
+import datetime
 from odoo.exceptions import ValidationError
 
 
