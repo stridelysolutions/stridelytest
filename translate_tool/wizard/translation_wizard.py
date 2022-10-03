@@ -10,7 +10,6 @@ except ImportError as e:
     os.system("pip3 install deep_translator") 
     os.system("pip3 install googletrans")
     os.system("pip3 install base64")
-# from deep_translator import GoogleTranslator
 # """Translate Language"""
 NEW_LANG_KEY = '__new__'
 
@@ -48,7 +47,7 @@ class TranslationWizard(models.TransientModel):
         except OSError:
             pass
         return False
-
+ 
     def export_file(self):
         if self.isConnected() == True:
             this = self[0]

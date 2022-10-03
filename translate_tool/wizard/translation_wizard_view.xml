@@ -13,6 +13,7 @@
                            widget='many2one_tags' 
                            options="{'no_create': True, 
                                    'no_create_edit':True}"/>
+
                 </group>
                 <div>
                   <span style="color:red">* </span>Please note that, this Tool is translating the Custom terms available in the Custom Module/Reports/Fields and will not translate the Standard terms as of now. You can select the Specific module needs to be translated and then can check the updated terms in the related module once completed.
