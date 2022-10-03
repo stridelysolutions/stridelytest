@@ -1,15 +1,8 @@
 # -*- coding: utf-8 -*-
 """Driving School Classes Model"""
-import string
-from timeit import repeat
 from odoo import models, fields, api
-from odoo.http import request
-import datetime
-from psycopg2 import sql
-# from flask import request
+import datetimel
 from odoo.exceptions import ValidationError
-import os
-from twilio.rest import Client
 
 
 class driving_school_classes(models.Model):
