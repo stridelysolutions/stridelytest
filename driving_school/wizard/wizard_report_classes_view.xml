@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="classes_report_view_form" model="ir.ui.view">
+        <field name="name">classes_report.view.form</field>
+        <field name="model">driving_school.wizard_report</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="from_date" />
+                        <field name="to_date" />
+                        <field name="lessons" />
+                        <field name="classes" />
+                    </group>
+                    <footer>
+                          <button name = 'search_data' string="Print" class = "btn-secondary" type='object'/> 
+                          <button string="Cancel" class = "btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_report_view_action" model="ir.actions.act_window">
+            <field name="name">Report Classes</field>
+            <field name="res_model">driving_school.wizard_report</field>
+            <field name="view_mode">form,tree</field>
+            <field name="target">new</field>
+    </record>
+
+    <menuitem 
+      name="Report By Classes" 
+      id="driving_school.menu_7" 
+      parent="driving_school.menu_root" 
+      sequence="8"
+      action="wizard_report_view_action"/>
+</odoo>

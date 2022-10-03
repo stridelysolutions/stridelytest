@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <report
+            id="action_classes_id_card"
+            string = "Classes"
+            model="driving_school.classes"
+            report_type ="qweb-pdf"
+            name = "driving_school.report_classes_card"
+            file = "driving_school.report_classes_card"
+          />
+
+          <report
+            id="action_classes_id_html_card"
+            string = "Detailed Report"
+            model="driving_school.wizard_report"
+            report_type ="qweb-html"
+            name = "driving_school.report_classes_html_card"
+            file = "driving_school.report_classes_html_card"
+          />
+
+</odoo>

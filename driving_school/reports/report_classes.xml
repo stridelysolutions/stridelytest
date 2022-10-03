@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     
+    <template id="report_classes_card">
+        <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+             <h5>Classes</h5>
+               <t t-foreach="docs" t-as="doc">
+               <h6><t t-esc="doc.name"/></h6>
+               <h6>From  : <t t-esc="doc.from_date"/></h6>
+               <h6>To  : <t t-esc="doc.to_date"/></h6>
+               <table class="table table-sm" style="page-break-inside: avoid;">
+                    <h5>Details</h5>
+                        <tr>
+                            <th>Vehicle </th>
+                            <th>Location</th>
+                            <th>Available Spaces</th>
+                            <th>Service</th>
+                            <th>Teacher</th>
+                        </tr>
+                        <tr>
+                            <td><t t-esc="doc.vehicle.name"/></td>
+                            <td><t t-esc="doc.location.name"/></td>
+                            <td><t t-esc="doc.available_spaces"/></td>
+                            <td><t t-esc="doc.service.name"/></td>
+                            <td><t t-esc="doc.teacher.name"/></td>
+                        </tr>  
+                </table>
+                <h5>Lessons:</h5>
+                <table class="table table-sm" style="page-break-inside: avoid;">
+                    <tr>
+                        <th>Lessons Name </th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>State</th>
+                    </tr>
+                    <t t-foreach="doc.lessons_ids" t-as="l">
+                            <tr>
+                               <td><t t-esc="l.lessons_name"/></td>
+                               <td><t t-esc="l.start_date"/></td>
+                               <td><t t-esc="l.end_date"/></td>
+                               <td><t t-esc="l.state"/></td>
+                            </tr>
+                    </t>
+                </table>
+                </t>
+            </t>
+        </t>
+    </template>   
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     
+     <record id="login_view_form" model="ir.ui.view">
+         <field name="name">login.view.form</field>
+         <field name="model">driving_school.login</field>
+         <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <group>
+                         <field name="username" />
+                         <field name="password" />
+                     </group>
+                     <footer>
+                         <button name='check_data' string="Login" type="object" class="btn-primary" />
+                     </footer>
+                 </sheet>
+             </form>
+         </field>
+     </record>
+
+    <record model="ir.actions.act_window" id="login_action_window">
+                <field name="name">Login</field>
+                <field name="res_model">driving_school.login</field>
+                <field name="view_mode">form</field>
+                <field name="domain"></field>
+                <field name="target">new</field>
+    </record>
+</odoo>

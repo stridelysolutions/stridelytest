@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+students_attendance,access_students_attendance,model_students_attendance,base.group_user,1,1,1,1
+driving_school_classes,access_driving_school_classes,model_driving_school_classes,base.group_user,1,1,1,1
+driving_school_lessons,access_driving_school_lessons,model_driving_school_lessons,base.group_user,1,1,1,1
+driving_school_monthly,access_driving_school_monthly,model_driving_school_monthly,base.group_user,1,1,1,1
+driving_school_services,access_driving_school_services,model_driving_school_services,base.group_user,1,1,1,1
+driving_school_teacher,access_driving_school_teacher,model_driving_school_teacher,base.group_user,1,1,1,1
+driving_school_wizard_invoice,access_driving_school_wizard_invoice,model_driving_school_wizard_invoice,base.group_user,1,1,1,1
+driving_school_wizard_report,access_driving_school_wizard_report,model_driving_school_wizard_report,base.group_user,1,1,1,1
+driving_school_wizard_students,access_driving_school_wizard_students,model_driving_school_wizard_students,base.group_user,1,1,1,1
+driving_school_login,access_driving_school_login,model_driving_school_login,base.group_user,1,1,1,1

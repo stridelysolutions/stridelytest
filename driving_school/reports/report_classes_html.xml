@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <template id="report_classes_html_card" name="Html Report">
+           <t t-call="web.html_container">
+             <div class = 'container'>
+            <h1>Attendance Summary</h1>
+
+              <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <th>Month</th>
+                      <td><t t-esc="month"/></td>
+                    </tr>
+                    <tr>
+                      <th rowspan="2">Days</th>
+                      <t t-foreach="days_name" t-as="d">
+                          <td><t t-esc="d"/></td>
+                      </t>
+                    </tr>
+                    <tr>
+                       <t t-foreach="date" t-as="d">
+                          <td><t t-esc="d"/></td>
+                      </t>
+                    </tr>
+                      <t t-foreach="form" t-as="f">
+                          <tr>
+                              <th><t t-esc="f"/></th>
+                          </tr>
+                         
+                          <t t-foreach="form.get(f)" t-as="value">
+                             <tr>
+                              <td><t t-esc="value"/></td>
+                             </tr>
+                            
+                          </t>
+                      </t>
+                  </tbody>
+             </table>
+               </div> 
+           </t>
+         
+     </template>
+
+</odoo>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="lessons_view_calendar" model="ir.ui.view">
+            <field name="name">lessons.view.calendar</field>
+            <field name="model">driving_school.lessons</field>
+            <field name="arch" type="xml">
+                <calendar string="" date_start="start_date" date_stop = "end_date" color="lessons_name">
+                    <field name="lessons_name" />
+                </calendar>
+            </field>
+        </record>
+
+        <record id="lessons_view_tree" model="ir.ui.view">
+             <field name="name">lessons.view.tree</field>
+             <field name="model">driving_school.lessons</field>
+             <field name="arch" type="xml">
+                 <tree editable="bottom">
+                     <field name="lessons_name" />
+                   <field name="start_date" />
+                   <field name="end_date" />
+                   <field name="state" />
+                 </tree>
+             </field>
+        </record>
+
+        <record id="lessons_view_form" model="ir.ui.view">
+             <field name="name">lessons.form</field>
+             <field name="model">driving_school.lessons</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                 <header>
+                    <button 
+                       name="start_data" 
+                       type="object" 
+                       string="Start Lessons" 
+                       class="btn-primary" 
+                       attrs="{'invisible': [('state', '=', 'started')]}" />
+                    <button 
+                       name="complete_data" 
+                       type="object" 
+                       string="Complete Lessons" 
+                       class="btn-primary" 
+                       attrs="{'invisible': [('state', '=', 'completed')]}"/>
+                    <button 
+                       name="cancel" 
+                       type="object" 
+                       string="Cancel" 
+                       class="btn-primary"/>
+                    <field name="state" widget="statusbar" options= "{'clickable':'1'}"/>
+                </header>
+                     <sheet>
+                         
+                             <h1><field name="lessons_name" /></h1>
+                             Period : <field name="start_date" /> - <field name="end_date" />
+                             <group>
+                                <group>
+                             
+                                 <field name="teacher" />
+                                 <field 
+                                    name="students_data_ids" 
+                                    widget="many2many_tags" 
+                                    options="{'color_field': 'color'}"/>
+                                 </group>
+                                 <group>
+                                     <field name="service" /> 
+                                     <field name="vehicle" />
+                                 </group>
+                             </group>
+                             <h2>Attendance</h2>
+                             <field name="students_attendance_ids" >
+                                <tree 
+                                    decoration-success="attendance=='Present'" 
+                                    decoration-danger="attendance=='Absent'" 
+                                    delete ="0" create="0" >
+                                    <field name="bool_field" invisible="1"/>
+                                    <field name="name" />
+                                    <field name="attendance" widget='badge'/>
+                                    <button 
+                                       name="correction_attendance" 
+                                       type="object" 
+                                       string = "Correction" 
+                                       class="btn-primary"  
+                                       attrs="{'invisible': [('bool_field', '=', False)]}"/>
+                                    <button 
+                                       name="present_data" 
+                                       type="object" 
+                                       class="fa fa-check" 
+                                       style="color:green" 
+                                       attrs="{'invisible': [('bool_field', '=', True)]}"/>
+                                    <button 
+                                       name="absent_data" 
+                                       type="object"  
+                                       class="fa fa-times" 
+                                       style="color:red" 
+                                       attrs="{'invisible': [('bool_field', '=', True)]}"/>
+                                </tree>
+                             </field>
+                     </sheet>
+                 </form>
+             </field>
+         </record>
+
+         <record model="ir.actions.act_window" id="lessons_action_window">
+                <field name="name">Lessons</field>
+                <field name="res_model">driving_school.lessons</field>
+                <field name="view_mode">tree,form,kanban,search,calendar</field>
+                <field name="domain"></field>
+         </record>
+
+        <menuitem 
+            name="Lessons" 
+            id="driving_school.menu_5" 
+            parent="driving_school.menu_root" 
+            sequence="3"
+            action="lessons_action_window"/>
+    </data>
+</odoo>
