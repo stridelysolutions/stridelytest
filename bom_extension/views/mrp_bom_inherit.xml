@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+      <record id="view_mrp_bom" model="ir.ui.view">
+            <field name="name">mrp.bom.inherit</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+            <field name="arch" type="xml">
+            <data>
+             <xpath expr="//sheet" position="before">
+                <header>
+                    <button name='%(bom_extension.wizard_revision_action)d' string = "Release For Production" type='action' attrs="{'invisible': [('state', '=', 'In Production')]}" class="btn-primary"/>
+                     <button name='set_to_development' string = "Set to Development" type='object' class="btn-primary" attrs="{'invisible': [('state', '=', 'In Development')]}"/>
+                    <field name="state" widget="statusbar" options= "{'clickable':'1'}"/>
+                </header>    
+            </xpath> 
+            <xpath expr="//page[@name = 'miscellaneous']" position="after">
+               
+                <page string="Revisions" name="revisions">
+                   <field name="revision_ids" >
+                     <tree editable='bottom'>
+                        <field name="no" />
+                        <field name="author" />
+                        <field name="modification_date" />
+                        <field name="modification_name" />
+                     </tree>
+                   </field>
+                </page>
+                
+            </xpath>
+            </data>
+            </field>
+      </record>
+   
+    
+
+</odoo>
