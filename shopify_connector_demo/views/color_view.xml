@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="color_view_tree" model="ir.ui.view">
+            <field name="name">color.product.tree</field>
+            <field name="model">color.product</field>
+            <field name="arch" type="xml">
+                <tree string="color">
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="color_view_action" model="ir.actions.act_window">
+            <field name="name">Product Color</field>
+            <field name="res_model">color.product</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="varients_menu"
+            name="varients"
+            parent = "shopify_connector_root"
+            />
+
+        <menuitem
+            id="color_menu"
+            name="Color"
+            parent = "varients_menu"
+            action = "color_view_action"
+            />
+    </data>
+</odoo>

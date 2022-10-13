@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="get_data_wizard" model="ir.ui.view">
+        <field name="name">get.data.wizard.form</field>
+        <field name="model">get.data.wizard</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="get data Wizard">
+                <sheet>
+                    <group>
+                        <field name="store_id"/>
+                    </group>
+                    <footer>
+                        <button
+                            class="btn-primary oe_highlight"
+                            id="btn_account_access_data"
+                            name="account_access_data" 
+                            string="Access"
+                            type="object"
+                            />
+                        <button 
+                            class="btn-primary oe_highlight"
+                            id="button_cancel"
+                            name="cancel"
+                            string="Cancel"
+                            type="object"
+                            />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="get_data_action" model="ir.actions.act_window">
+        <field name="name">Get data Details</field>
+        <field name="res_model">get.data.wizard</field>
+        <field name="view_mode">form</field>   
+        <field name="target">new</field>
+    </record>
+</odoo>

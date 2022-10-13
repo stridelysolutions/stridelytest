@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_types_view_tree" model="ir.ui.view">
+            <field name="name">Product Types</field>
+            <field name="model">product.types</field>
+            <field name="arch" type="xml">
+                <tree string="Product Types">
+                    <field name="types_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_types_action" model="ir.actions.act_window">
+            <field name="name">Product Types Action</field>
+            <field name="res_model">product.types</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="product_type_menu"
+            name="Product Types"
+            parent="shopify_connector_root"
+            action="product_types_action"
+            />
+    </data>
+</odoo>

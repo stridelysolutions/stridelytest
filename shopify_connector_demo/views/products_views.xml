@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="products_tree_view" model="ir.ui.view">
+            <field name="name">shopify.products.tree</field>
+            <field name="model">shopify.products</field>
+            <field name="arch" type="xml">
+                <tree string="Products Tree view">
+                    <field name="product_name"/>
+                    <field name="store_name"/>
+                    <field name="vendor"/>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="products_form_view" model="ir.ui.view">
+            <field name="name">shopify products form</field>
+            <field name="model">shopify.products</field>
+            <field name="arch" type="xml">
+                <form string="products form">
+                    <header>
+                        <button
+                            class="btn-primary oe_highlight"
+                            id="export_shopify_btn"
+                            name="export_shopify"
+                            string="Send Shopify"
+                            type="object"
+                            />
+                        <button
+                            class="btn-primary oe_highlight"
+                            id="update_shopify_btn"
+                            name="update_product"
+                            string="Update to Shopify"
+                            type="object"
+                            />
+                        <button
+                            class="btn-primary oe_highlight"
+                            id="delete_shopify_btn"
+                            name="delete_product"
+                            string="Delete to Shopify"
+                            type="object"
+                            confirm="Are You Sure You Want To Delete"
+                            />
+                        <field name="status" widget="statusbar"  options="{'clickable':0}"/> 
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <h1>
+                                    <field name="product_name"/>
+                                </h1>
+                            </group>
+                            <group>
+                                <field name="image" placeholder="Upload your profile picture" widget="image" class="oe_avatar"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="Product details" string="Product details">
+                                <field name="store_name"/>
+                                <field name="vendor"/>
+                                <field name="product_type"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                        <group name="Varients Details" string="Varients Details">
+                            <!-- <field name="color_ids" widget="many2many_tags"/>
+                            <field name="product_size_ids" widget="many2many_tags"/> -->
+                            <field name="varients_ids">
+                                <tree editable="True">
+                                    <field name="product_image" widget="image" class="oe_avatar"/>
+                                    <field name="color_id"/>
+                                    <field name="product_size_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <div style="background-color:orange">
+                            <group name="Shopify Details" string="Shopify Details">   
+                                <h3>Notes:- This Details is Only Devlopment Purpose.</h3>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="shopify_id"/>
+                                    <field name="variant_id"/>
+                                </group>
+                                <group>
+                                    <field name="image_id"/>
+                                </group>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="products_action" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="res_model">shopify.products</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="products_menu"
+            name="Products"
+            parent = "shopify_connector_root"
+            action = "products_action"
+            />
+    </data>
+</odoo>

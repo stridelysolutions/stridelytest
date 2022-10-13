@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_access_tree" model="ir.ui.view">
+            <field name="name">account.access.tree</field>
+            <field name="model">account.access</field>
+            <field name="arch" type="xml">
+                <tree string="Account Access tree">
+                    <field name="vendor_name"/>
+                    <field name="store_name"/>
+                    <field name="api_token"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account_access_form" model="ir.ui.view">
+            <field name="name">account.access.form</field>
+            <field name="model">account.access</field>
+            <field name="arch" type="xml">
+                <form string="account Form">
+                    <header>
+                        <button
+                            class="btn-primary oe_highlight"
+                            id="sync_product_btn"
+                            name="sync_product"
+                            string="Sync Product"
+                            type="object"
+                            />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="vendor_name"/>
+                            <field name="store_name"/>
+                            <field name="api_token"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_access_action" model="ir.actions.act_window">
+            <field name="name">Account Access</field>
+            <field name="res_model">account.access</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            name="Accounts"
+            id="Account_access_menu"
+            parent="shopify_connector_root"
+            action = "account_access_action"
+            sequence = "1"
+            />
+        
+    </data>
+</odoo>

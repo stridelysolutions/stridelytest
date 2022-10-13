@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="home_dashbord_tree">
+      <field name="name">Home Dashbord</field>
+      <field name="model">home.dashbord</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="output"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="shopify_home_form" model="ir.ui.view">
+      <field name="name">home.dashbord.form</field>
+      <field name="model">home.dashbord</field>
+      <field name="arch" type="xml">
+        <form string="Form view">
+          <sheet>
+          <button
+            class="btn-primary oe_highlight"
+            id="get_data_btn"
+            name="%(get_data_action)d"
+            string="Account Access"
+            type="action"/>
+            <group>
+              <field name="output"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="home_dashbord_action" model="ir.actions.act_window">
+      <field name="name">Shopify Home</field>
+      <field name="res_model">home.dashbord</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="shopify_connector" id="shopify_connector_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Shopify Menu" id="shopify_menu" parent="shopify_connector_root" action = "home_dashbord_action"/>
+    
+  </data>
+</odoo>
